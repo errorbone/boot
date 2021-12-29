@@ -1,0 +1,17 @@
+# Setup installurl
+echo "http://cdn.openbsd.org/pub/OpenBSD/" > /etc/installurl
+
+# Install git
+export PKG_PATH=http://cdn.openbsd.org/pub/OpenBSD/$(uname -r)/packages/$(uname -p) && pkg_add -I git ansible
+
+# Make git folder
+mkdir /root/git
+cd /root/git
+
+# Clone playbook
+if [ -d /root/git/deploy ]
+then
+    cd /root/git/deploy && git pull
+else
+    git clone https://github.com/errorbone/boot
+fi
