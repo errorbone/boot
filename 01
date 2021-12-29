@@ -13,5 +13,5 @@ if [ -d /root/git/deploy ]
 then
     cd /root/git/deploy && git pull
 else
-    git clone https://github.com/errorbone/boot
+    git clone https://github.com/errorbone/boot.git
 fi
